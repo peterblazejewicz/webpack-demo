@@ -1,4 +1,5 @@
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
+import * as NyanProgressPlugin from 'nyan-progress-webpack-plugin';
 import path = require("path");
 import * as webpack from "webpack";
 import * as wds from 'webpack-dev-server';
@@ -30,6 +31,7 @@ const commonConfig: webpack.Configuration = {
     new HtmlWebpackPlugin({
       title: "Webpack demo",
     }),
+    new NyanProgressPlugin(),
   ],
 };
 
@@ -48,7 +50,7 @@ const developmentConfig = () => {
       port: +(process.env.PORT || '8080'), // Defaults to 8080
       publicPath: "/",
       // Display only errors to reduce the amount of output.
-      stats: "errors-only",
+      stats: "normal",
     };
     const wdsConfig: webpack.Configuration = {
         devServer,

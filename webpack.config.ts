@@ -1,10 +1,10 @@
+import * as HtmlWebpackPlugin from "html-webpack-plugin";
+import path = require("path");
 import * as webpack from "webpack";
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const PATHS = {
   app: path.join(__dirname, "app"),
-  build: path.join(__dirname, "build")
+  build: path.join(__dirname, "build"),
 };
 
 const config: webpack.Configuration = {
@@ -12,16 +12,16 @@ const config: webpack.Configuration = {
   // convention by default so if a directory contains *index.js*,
   // it resolves to that.
   entry: {
-    app: PATHS.app
+    app: PATHS.app,
   },
   output: {
+    filename: "[name].js",
     path: PATHS.build,
-    filename: "[name].js"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack demo"
-    })
-  ]
+      title: "Webpack demo",
+    }),
+  ],
 };
 export default config;

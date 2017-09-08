@@ -1,0 +1,28 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "Read: https://survivejs.com/webpack/",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterblazejewicz/webpack-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterblazejewicz/webpack-demo/issues"
+  },
+  "homepage": "https://github.com/peterblazejewicz/webpack-demo#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.27",
+    "@types/webpack": "^3.0.10",
+    "html-webpack-plugin": "^2.30.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.2",
+    "webpack": "^3.5.6"
+  }
+}

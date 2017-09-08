@@ -1,7 +1,7 @@
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
-import * as NyanProgressPlugin from 'nyan-progress-webpack-plugin';
 import path = require("path");
 import * as webpack from "webpack";
+import * as DashboardPlugin from "webpack-dashboard/plugin";
 import * as wds from 'webpack-dev-server';
 
 /**
@@ -9,7 +9,8 @@ import * as wds from 'webpack-dev-server';
  * @interface IEnvironment
  */
 interface IEnvironment {
-  target?: string;
+    progress?: string;
+    target?: string;
 }
 const PATHS = {
   app: path.join(__dirname, "app"),
@@ -31,7 +32,7 @@ const commonConfig: webpack.Configuration = {
     new HtmlWebpackPlugin({
       title: "Webpack demo",
     }),
-    new NyanProgressPlugin(),
+    new DashboardPlugin(),
   ],
 };
 

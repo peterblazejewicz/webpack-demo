@@ -1,36 +1,39 @@
 {
-  "name": "webpack-demo",
-  "version": "1.0.0",
-  "description": "Read: https://survivejs.com/webpack/",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --env.target production",
-    "start": "nodemon --watch webpack.config.ts --exec \"webpack-dev-server --env development\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peterblazejewicz/webpack-demo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/peterblazejewicz/webpack-demo/issues"
-  },
-  "homepage": "https://github.com/peterblazejewicz/webpack-demo#readme",
-  "devDependencies": {
-    "@types/html-webpack-plugin": "^2.28.0",
-    "@types/node": "^8.0.27",
-    "@types/webpack": "^3.0.10",
-    "@types/webpack-dev-server": "^2.4.1",
-    "html-webpack-plugin": "^2.30.1",
-    "nodemon": "^1.12.0",
-    "nyan-progress-webpack-plugin": "^1.2.0",
-    "ts-node": "^3.3.0",
-    "tslint": "^5.7.0",
-    "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.5.2",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.7.1"
-  }
+    "name": "webpack-demo",
+    "version": "1.0.0",
+    "description": "Read: https://survivejs.com/webpack/",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --env.target production",
+        "start": "nodemon --watch webpack.config.ts --exec \"webpack-dev-server --env.target development\"",
+        "dev:dashboard": "webpack-dashboard -- webpack-dev-server --env.target development",
+        "dev:nyan": "nodemon --watch webpack.config.ts --exec \"webpack-dev-server --env.target development --env.progress nayn\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/peterblazejewicz/webpack-demo.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/peterblazejewicz/webpack-demo/issues"
+    },
+    "homepage": "https://github.com/peterblazejewicz/webpack-demo#readme",
+    "devDependencies": {
+        "@types/html-webpack-plugin": "^2.28.0",
+        "@types/node": "^8.0.27",
+        "@types/webpack": "^3.0.10",
+        "@types/webpack-dev-server": "^2.4.1",
+        "html-webpack-plugin": "^2.30.1",
+        "nodemon": "^1.12.0",
+        "nyan-progress-webpack-plugin": "^1.2.0",
+        "ts-node": "^3.3.0",
+        "tslint": "^5.7.0",
+        "tslint-eslint-rules": "^4.1.1",
+        "typescript": "^2.5.2",
+        "webpack": "^3.5.6",
+        "webpack-dashboard": "^1.0.0-5",
+        "webpack-dev-server": "^2.7.1"
+    }
 }

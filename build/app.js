@@ -65,17 +65,27 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!**********************!*\
+  !*** ./app/index.js ***!
+  \**********************/
+/*! exports provided:  */
+/*! all exports used */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(/*! ./component */ 1);
 
 
 document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])());
 
 /***/ }),
 /* 1 */
+/*!**************************!*\
+  !*** ./app/component.js ***!
+  \**************************/
+/*! exports provided: default */
+/*! exports used: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -3,6 +3,10 @@ import path = require("path");
 import * as webpack from "webpack";
 import * as wds from 'webpack-dev-server';
 
+/**
+ * Contract for environment variables
+ * @interface IEnvironment
+ */
 interface IEnvironment {
   target?: string;
 }
@@ -54,6 +58,7 @@ const developmentConfig = () => {
         wdsConfig,
     );
 };
+
 export default (env: IEnvironment) => {
   // tslint:disable-next-line:no-console
   console.log("env", env);

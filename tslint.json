@@ -4,7 +4,15 @@
         "tslint-eslint-rules",
         "tslint:recommended"
     ],
-    "jsRules": {},
-    "rules": {},
+    "jsRules": {
+        "quotemark": [
+            "single"
+        ]
+    },
+    "rules": {
+        "quotemark": [
+            "single"
+        ]
+    },
     "rulesDirectory": []
 }

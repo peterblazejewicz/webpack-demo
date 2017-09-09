@@ -5,6 +5,7 @@ import { join } from 'path';
 import * as webpack from 'webpack';
 import * as DashboardPlugin from 'webpack-dashboard/plugin';
 import * as wds from 'webpack-dev-server';
+import * as merge from 'webpack-merge';
 
 /* eslint-disable no-undef */
 /**
@@ -22,37 +23,42 @@ const PATHS = {
     build: join(__dirname, 'build'),
 };
 
-const commonConfig: webpack.Configuration = {
-    // Entries have to resolve to files! They rely on Node
-    // convention by default so if a directory contains *index.js*,
-    // it resolves to that.
-    entry: {
-        app: PATHS.app,
-    },
-    module: {
-        rules: [
-            {
-                enforce: 'pre',
-                exclude: /node_modules/,
-                loader: 'eslint-loader',
-                test: /\.js$/,
-            },
+const commonConfig = (): webpack.Configuration => {
+    return {
+        // Entries have to resolve to files! They rely on Node
+        // convention by default so if a directory contains *index.js*,
+        // it resolves to that.
+        entry: {
+            app: PATHS.app,
+        },
+        module: {
+            rules: [
+                {
+                    enforce: 'pre',
+                    exclude: /node_modules/,
+                    loader: 'eslint-loader',
+                    test: /\.js$/,
+                },
+            ],
+        },
+        output: {
+            filename: '[name].js',
+            path: PATHS.build,
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                title: 'Webpack demo',
+            }),
+            new DashboardPlugin(),
         ],
-    },
-    output: {
-        filename: '[name].js',
-        path: PATHS.build,
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Webpack demo',
-        }),
-        new DashboardPlugin(),
-    ],
+    };
 };
 
-const productionConfig = () => commonConfig;
-const developmentConfig = () => {
+const productionConfig = (): webpack.Configuration => {
+    return {};
+};
+
+const developmentConfig = (): webpack.Configuration => {
     const devServer: wds.Configuration = {
         // Enable history API fallback so HTML5 History API based
         // routing works. Good for complex setups.
@@ -76,14 +82,17 @@ const developmentConfig = () => {
     const wdsConfig: webpack.Configuration = {
         devServer,
     };
-    return Object.assign({}, commonConfig, wdsConfig);
+    return wdsConfig;
 };
 
 export default (env: IEnvironment) => {
     // tslint:disable-next-line:no-console
     console.log('env', env);
-    if (env.target === 'production') {
-        return productionConfig();
+    switch (env.target) {
+        case 'production':
+            return merge(commonConfig(), productionConfig());
+        case 'development':
+        default:
+            return merge(commonConfig(), developmentConfig());
     }
-    return developmentConfig();
 };

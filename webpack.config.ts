@@ -29,6 +29,16 @@ const commonConfig: webpack.Configuration = {
     entry: {
         app: PATHS.app,
     },
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                test: /\.js$/,
+            },
+        ],
+    },
     output: {
         filename: '[name].js',
         path: PATHS.build,
@@ -53,6 +63,11 @@ const developmentConfig = () => {
         // 0.0.0.0 is available to all network devices
         // unlike default `localhost`.
         host: process.env.HOST, // Defaults to `localhost`
+        // overlay: true is equivalent
+        overlay: {
+            errors: true,
+            warnings: true,
+        },
         port: +(process.env.PORT || '8080'), // Defaults to 8080
         publicPath: '/',
         // Display only errors to reduce the amount of output.

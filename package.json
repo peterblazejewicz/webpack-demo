@@ -7,7 +7,7 @@
         "build": "webpack --env.target production",
         "dev:dashboard": "webpack-dashboard -- webpack-dev-server --env.target development",
         "dev:nyan": "nodemon --watch config --watch webpack.config.ts --exec \"webpack-dev-server --env.target development --env.progress nayn\"",
-        "lint:js": "eslint app/ --cache",
+        "lint:js": "eslint app/ *.js --cache",
         "lint:ts": "tslint app/ config/ webpack.*.ts",
         "start": "nodemon --watch config --watch webpack.config.ts --exec \"webpack-dev-server --env.target development\""
     },
@@ -42,6 +42,7 @@
         "node-sass": "^4.5.3",
         "nodemon": "^1.12.0",
         "nyan-progress-webpack-plugin": "^1.2.0",
+        "postcss-loader": "^2.0.6",
         "prettier": "^1.6.1",
         "prettier-eslint": "^8.0.0",
         "sass-lint": "^1.11.1",

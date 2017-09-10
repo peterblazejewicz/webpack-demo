@@ -24,6 +24,9 @@ const loadCss: (
                             loader: 'css-loader', // translates CSS into CommonJS
                         },
                         {
+                            loader: 'postcss-loader', // Transforming styles with JS plugins
+                        },
+                        {
                             loader: 'sass-loader', // compiles Sass to CSS
                         },
                     ],

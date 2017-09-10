@@ -32,7 +32,7 @@ const commonConfig: webpack.Configuration = merge([
     lintJavaScript({
         include: PATHS.app,
     }),
-    loadCss({}),
+    loadCss({ exclude: /node_modules/ }),
 ]);
 
 export default commonConfig;

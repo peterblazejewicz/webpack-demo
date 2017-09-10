@@ -10,21 +10,19 @@ const lintJavaScript: (
         exclude?: Condition | Condition[];
         options?: NewLoaderRule;
     },
-) => Configuration = ({ include, exclude, options }) => {
-    return {
-        module: {
-            rules: [
-                {
-                    enforce: 'pre',
-                    exclude,
-                    include,
-                    loader: 'eslint-loader',
-                    options,
-                    test: /\.js$/,
-                },
-            ],
-        },
-    };
-};
+) => Configuration = ({ include, exclude, options }) => ({
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                exclude,
+                include,
+                loader: 'eslint-loader',
+                options,
+                test: /\.js$/,
+            },
+        ],
+    },
+});
 
 export default lintJavaScript;

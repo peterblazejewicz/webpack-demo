@@ -1,3 +1,4 @@
+import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 import { autoprefix, extractCss } from './parts';
@@ -11,6 +12,9 @@ const productionConfig: webpack.Configuration = merge([
             'sass-loader', // compiles Sass to CSS
         ],
     }),
+    {
+        plugins: [new HtmlWebpackExcludeAssetsPlugin()],
+    } as webpack.Configuration,
 ]);
 
 export default productionConfig;

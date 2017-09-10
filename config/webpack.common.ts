@@ -1,4 +1,3 @@
-import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
 import * as webpack from 'webpack';
@@ -30,7 +29,6 @@ const commonConfig: webpack.Configuration = merge([
                 excludeAssets: [/style.*.js/], // exclude style.js or style.[chunkhash].js
                 title: 'Webpack demo',
             }),
-            new HtmlWebpackExcludeAssetsPlugin(),
             new DashboardPlugin(),
         ],
     } as webpack.Configuration,

@@ -14,22 +14,21 @@ See [Unambiguous Webpack config with Typescript](https://medium.com/webpack/unam
 ## Example TypeScript configuration
 
 ```ts
+import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 import { commonConfig, developmentConfig, productionConfig } from './config/';
 
-/* eslint-disable no-undef */
 /**
- * Contract for environment variables
- * @interface IEnvironment
+ * Composes Wepback configuration options into single config
+ * @param {{ progress?: string; target?: string }} env
+ * @returns {object} webpack configuration
  */
-interface IEnvironment {
-    /* eslint-disable no-undef */
-    progress?: string;
-    /* eslint-disable no-undef */
-    target?: string;
-}
-
-export default (env: IEnvironment) => {
+const config: (
+    env: {
+        progress?: string;
+        target?: string;
+    },
+) => webpack.Configuration = env => {
     // tslint:disable-next-line:no-console
     console.log('env', env);
     switch (env.target) {
@@ -40,6 +39,7 @@ export default (env: IEnvironment) => {
             return merge(commonConfig, developmentConfig);
     }
 };
+export default config;
 ```
 
 ```ts
@@ -47,12 +47,12 @@ import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 import { devServer } from './parts';
 
-const developmentConfig = merge([
+const developmentConfig: webpack.Configuration = merge([
     {
         devServer: devServer({
             // Customize host/port here if needed
             host: process.env.HOST,
-            port: +(process.env.PORT || '8080'),
+            port: process.env.PORT ? +(process.env.PORT || 8080) : undefined,
         }),
     } as webpack.Configuration,
 ]);

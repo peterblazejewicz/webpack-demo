@@ -1,7 +1,10 @@
+import { Condition } from 'webpack';
 import * as wds from 'webpack-dev-server';
 
-const devServer = ({ host, port }: { host?: string; port?: number } = {}) => {
-    const devServer: wds.Configuration = {
+const devServer = (
+    { host, port }: { host?: string; port?: number } = {},
+): wds.Configuration => {
+    const config: wds.Configuration = {
         // Enable history API fallback so HTML5 History API based
         // routing works. Good for complex setups.
         historyApiFallback: true,
@@ -21,7 +24,7 @@ const devServer = ({ host, port }: { host?: string; port?: number } = {}) => {
         // Display only errors to reduce the amount of output.
         stats: 'normal',
     };
-    return devServer;
+    return config;
 };
 
 export default devServer;

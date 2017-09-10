@@ -1,8 +1,6 @@
-# webpack-demo
+# webpack-demo-typescript
 
-Read: https://survivejs.com/webpack/
-
-## Note
+First: read: https://survivejs.com/webpack/
 
 This project derives from the original source code  that ships with a book. The code within this project is a mix of TypeScript and ES6 JavaScript. The TypeScript is used for type rich Webpack configuration, splitting in final Webpack configuration composition.
 

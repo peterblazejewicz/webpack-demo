@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import * as DashboardPlugin from 'webpack-dashboard/plugin';
 import * as merge from 'webpack-merge';
-import { lintJavaScript } from './parts';
+import { lintJavaScript, loadCss } from './parts';
 
 const PATHS: { app: string; build: string } = {
     app: path.join(__dirname, '../app'),
@@ -32,6 +32,7 @@ const commonConfig: webpack.Configuration = merge([
     lintJavaScript({
         include: PATHS.app,
     }),
+    loadCss({}),
 ]);
 
 export default commonConfig;

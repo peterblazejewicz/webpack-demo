@@ -1,10 +1,15 @@
 import { Condition } from 'webpack';
 import * as wds from 'webpack-dev-server';
 
-const devServer = (
-    { host, port }: { host?: string; port?: number } = {},
-): wds.Configuration => {
-    const config: wds.Configuration = {
+/**
+ * Factory method that creates webpack-dev-server configuration
+ * @param {{host?: string, port?: number}} [{ host, port }={ port: 8080 }]
+ * @returns webpack-dev-server configuration
+ */
+const devServer: (
+    { host, port }: { host?: string; port?: number | undefined },
+) => wds.Configuration = ({ host, port } = { port: 8080 }) => {
+    return {
         // Enable history API fallback so HTML5 History API based
         // routing works. Good for complex setups.
         historyApiFallback: true,
@@ -13,18 +18,17 @@ const devServer = (
         // host: options.host || '0.0.0.0';
         // 0.0.0.0 is available to all network devices
         // unlike default `localhost`.
-        host: process.env.HOST, // Defaults to `localhost`
+        host, // Defaults to `localhost`
         // overlay: true is equivalent
         overlay: {
             errors: true,
             warnings: true,
         },
-        port: +(process.env.PORT || '8080'), // Defaults to 8080
+        port, // Defaults to 8080
         publicPath: '/',
         // Display only errors to reduce the amount of output.
         stats: 'normal',
     };
-    return config;
 };
 
 export default devServer;

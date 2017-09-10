@@ -10,7 +10,7 @@ const PATHS: { app: string; build: string } = {
     build: path.join(__dirname, '../build'),
 };
 
-const commonConfig = merge([
+const commonConfig: webpack.Configuration = merge([
     {
         // Entries have to resolve to files! They rely on Node
         // convention by default so if a directory contains *index.js*,

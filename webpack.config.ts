@@ -1,12 +1,18 @@
+import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 import { commonConfig, developmentConfig, productionConfig } from './config/';
 
 /**
- * Composes wepback configuration options into single config
+ * Composes Wepback configuration options into single config
  * @param {{ progress?: string; target?: string }} env
  * @returns {object} webpack configuration
  */
-const config = (env: { progress?: string; target?: string }) => {
+const config: (
+    env: {
+        progress?: string;
+        target?: string;
+    },
+) => webpack.Configuration = env => {
     // tslint:disable-next-line:no-console
     console.log('env', env);
     switch (env.target) {

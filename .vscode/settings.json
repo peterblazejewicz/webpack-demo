@@ -12,5 +12,7 @@
         "**/bower_components": true,
         "**/build": true,
         "**/.vscode": true
-    }
+    },
+    "css.validate": false,
+    "scss.validate": false
 }

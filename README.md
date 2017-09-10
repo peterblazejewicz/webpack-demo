@@ -43,7 +43,7 @@ export default config;
 ```ts
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
-import { devServer } from './parts';
+import { devServer, loadCss } from './parts';
 
 const developmentConfig: webpack.Configuration = merge([
     {
@@ -53,6 +53,7 @@ const developmentConfig: webpack.Configuration = merge([
             port: process.env.PORT ? +(process.env.PORT || 8080) : undefined,
         }),
     } as webpack.Configuration,
+    loadCss({ exclude: /node_modules/ }),
 ]);
 
 export default developmentConfig;

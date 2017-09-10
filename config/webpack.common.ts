@@ -1,3 +1,4 @@
+import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
 import * as webpack from 'webpack';
@@ -5,9 +6,10 @@ import * as DashboardPlugin from 'webpack-dashboard/plugin';
 import * as merge from 'webpack-merge';
 import { lintJavaScript } from './parts';
 
-const PATHS: { app: string; build: string } = {
+const PATHS: { app: string; build: string; style: string } = {
     app: path.join(__dirname, '../app'),
     build: path.join(__dirname, '../build'),
+    style: path.join(__dirname, '../app/main.scss'),
 };
 
 const commonConfig: webpack.Configuration = merge([
@@ -17,6 +19,7 @@ const commonConfig: webpack.Configuration = merge([
         // it resolves to that.
         entry: {
             app: PATHS.app,
+            style: PATHS.style,
         },
         output: {
             filename: '[name].js',
@@ -24,8 +27,10 @@ const commonConfig: webpack.Configuration = merge([
         },
         plugins: [
             new HtmlWebpackPlugin({
+                excludeAssets: [/style.*.js/], // exclude style.js or style.[chunkhash].js
                 title: 'Webpack demo',
             }),
+            new HtmlWebpackExcludeAssetsPlugin(),
             new DashboardPlugin(),
         ],
     } as webpack.Configuration,

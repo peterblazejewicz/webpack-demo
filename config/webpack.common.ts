@@ -5,7 +5,7 @@ import * as DashboardPlugin from 'webpack-dashboard/plugin';
 import * as merge from 'webpack-merge';
 import { lintJavaScript } from './parts';
 
-const PATHS = {
+const PATHS: { app: string; build: string } = {
     app: path.join(__dirname, '../app'),
     build: path.join(__dirname, '../build'),
 };

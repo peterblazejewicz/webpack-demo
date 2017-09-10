@@ -1,19 +1,7 @@
 import * as merge from 'webpack-merge';
 import { commonConfig, developmentConfig, productionConfig } from './config/';
 
-/* eslint-disable no-undef */
-/**
- * Contract for environment variables
- * @interface IEnvironment
- */
-interface IEnvironment {
-    /* eslint-disable no-undef */
-    progress?: string;
-    /* eslint-disable no-undef */
-    target?: string;
-}
-
-export default (env: IEnvironment) => {
+const config = (env: { progress?: string; target?: string }) => {
     // tslint:disable-next-line:no-console
     console.log('env', env);
     switch (env.target) {
@@ -24,3 +12,4 @@ export default (env: IEnvironment) => {
             return merge(commonConfig, developmentConfig);
     }
 };
+export default config;

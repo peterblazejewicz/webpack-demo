@@ -12,7 +12,7 @@
         "dev:nyan": "nodemon --watch config --watch webpack.config.ts --exec \"webpack-dev-server --env.target development --env.progress nayn\"",
         "lint:js": "eslint app/ *.js --cache",
         "lint:ts": "tslint app/ config/ webpack.*.ts",
-        "start": "nodemon --watch config --watch webpack.config.ts --exec \"serve:dev\"",
+        "start": "nodemon --watch config --watch webpack.config.ts --exec \"npm run serve:dev\"",
         "serve:dev": "webpack-dev-server --env.target development",
         "webpack:prod": "webpack --env.target production",
         "webpack:dev": "webpack --env.target development"

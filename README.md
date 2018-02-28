@@ -12,8 +12,8 @@ See [Unambiguous Webpack config with Typescript](https://medium.com/webpack/unam
 ## Example TypeScript configuration
 
 ```ts
-import * as webpack from 'webpack';
-import * as merge from 'webpack-merge';
+import webpack from 'webpack';
+import merge from 'webpack-merge';
 import { commonConfig, developmentConfig, productionConfig } from './config/';
 
 /**
@@ -41,8 +41,8 @@ export default config;
 ```
 
 ```ts
-import * as webpack from 'webpack';
-import * as merge from 'webpack-merge';
+import webpack from 'webpack';
+import merge from 'webpack-merge';
 import { devServer, loadCss } from './parts';
 
 const developmentConfig: webpack.Configuration = merge([

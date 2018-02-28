@@ -1,5 +1,5 @@
 import { Condition } from 'webpack';
-import * as wds from 'webpack-dev-server';
+import wds from 'webpack-dev-server';
 
 /**
  * Factory method that creates webpack-dev-server configuration

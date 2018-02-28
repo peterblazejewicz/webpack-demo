@@ -1,4 +1,4 @@
-import * as autoprefixer from 'autoprefixer';
+import autoprefixer from 'autoprefixer';
 import { Loader } from 'webpack';
 
 const autoprefix: () => Loader = () => ({

@@ -10,6 +10,7 @@
     "checkJs": true,
     "declaration": false,
     "strict": true,                            /* Enable all strict type-checking options. */
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   }
 }

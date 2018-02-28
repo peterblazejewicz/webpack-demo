@@ -1,5 +1,5 @@
-import * as webpack from 'webpack';
-import * as merge from 'webpack-merge';
+import webpack from 'webpack';
+import merge from 'webpack-merge';
 import { devServer, loadCss } from './parts';
 
 const developmentConfig: webpack.Configuration = merge([

@@ -1,4 +1,4 @@
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { Condition, Configuration, Loader, NewLoaderRule } from 'webpack';
 
 const plugin = new ExtractTextPlugin({

@@ -1,8 +1,8 @@
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-import * as path from 'path';
-import * as webpack from 'webpack';
-import * as DashboardPlugin from 'webpack-dashboard/plugin';
-import * as merge from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
+import DashboardPlugin from 'webpack-dashboard/plugin';
+import merge from 'webpack-merge';
 import { lintJavaScript } from './parts';
 
 const PATHS: { app: string; build: string; style: string } = {

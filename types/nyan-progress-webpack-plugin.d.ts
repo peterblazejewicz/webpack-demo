@@ -1,1 +1,1 @@
-declare module "nyan-progress-webpack-plugin";
+declare module 'nyan-progress-webpack-plugin';

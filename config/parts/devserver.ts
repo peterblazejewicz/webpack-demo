@@ -1,4 +1,3 @@
-import { Condition } from 'webpack';
 import wds from 'webpack-dev-server';
 
 /**

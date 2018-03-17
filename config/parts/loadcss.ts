@@ -1,4 +1,4 @@
-import { Condition, Configuration, NewLoaderRule } from 'webpack';
+import { Condition, Configuration } from 'webpack';
 
 const loadCss: (
     {

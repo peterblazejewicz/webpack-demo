@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import merge from 'webpack-merge';
+
 import { lintJavaScript } from './parts';
 
 const PATHS: { app: string; build: string; style: string } = {

@@ -1,5 +1,5 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { Condition, Configuration, Loader, NewLoaderRule } from 'webpack';
+import { Condition, Configuration, Loader } from 'webpack';
 
 const plugin = new ExtractTextPlugin({
     filename: '[name].css',
